@@ -48,6 +48,11 @@ function App() {
     mSocket.emit("test", JSON.stringify(chatMessage));
   };
 
+  // Function to emit a string message to the server on the "test" event
+  const emitStringBroadcast = () => {
+    mSocket.emit("test-broadcast", "hello world");
+  };
+
   return (
     <div>
       <h1>Socket.IO React Client</h1>
@@ -60,6 +65,10 @@ function App() {
         <p>
           Click to emit stringified js object :{" "}
           <button onClick={emitObj}>Emit obj</button>
+        </p>
+        <p>
+          Click to emit broadcast to room clients :{" "}
+          <button onClick={emitStringBroadcast}>Emit Broadcast</button>
         </p>
       </div>
     </div>
